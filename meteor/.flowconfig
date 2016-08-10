@@ -1,7 +1,0 @@
-[options]
-module.name_mapper='^\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
-module.name_mapper='^meteor\/\(.*\):\(.*\)$' -> '<PROJECT_ROOT>meteor/.meteor/local/build/programs/server/packages/\1_\2'
-module.name_mapper='^meteor\/\(.*\)$' -> '<PROJECT_ROOT>meteor/.meteor/local/build/programs/server/packages/\1'
-
-[ignore]
-.*/node_modules/fbjs/*
