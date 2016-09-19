@@ -1,6 +1,7 @@
 // @flow
 type config = {
-  token: ?string
+  token: ?string,
+  currentSeason: Object
 }
 
 const initialState = () => {
@@ -22,6 +23,8 @@ const initialState = () => {
       break;
     case month < 12:
       season = 'fall'
+      break;
+    default:
       break;
   }
 

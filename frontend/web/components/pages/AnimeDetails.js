@@ -46,12 +46,19 @@ class AnimeDetails extends React.Component {
     const { animeCache } = this.props
     let content = null,
         details = animeCache[this.props.params.id]
+    console.log(details)
     if (details) {
       let averageScore = formatScore(details.average_score),
           description = details.description.replace(/<[^>]*>/ig, ""),
           genres = details.genres.map((genresList, i) => <li className="genres-list-item" key={i}>{genresList}</li>),
           characters
 
+      let externalLinks = details.external_links.map(link =>
+        <div>
+          <a href={link.url}>{link.site}</a>
+        </div>
+      )
+      console.log(externalLinks)
       if (details.characters.length > 0) {
         characters = details.characters.slice(0, 7)
           .map((charDetail, i) => <Character charDetail={charDetail} key={i}/>)
@@ -74,6 +81,10 @@ class AnimeDetails extends React.Component {
               <h3>Main Characters</h3>
               {characters}
             </ul>
+            <div className="external-links">
+              <h3>External Links</h3>
+              {externalLinks}
+            </div>
           </div>
         </div>
       )

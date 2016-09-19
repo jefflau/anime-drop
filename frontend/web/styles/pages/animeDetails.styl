@@ -5,8 +5,12 @@
     list-style-type none
 
   img
+    position relative
     float left
     margin-bottom 25px
+    +below($width-xxs)
+      left 50%
+      transform translateX(-50%)
 .genres
   overflow hidden
 .genres-list-item
