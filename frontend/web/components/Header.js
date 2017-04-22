@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
-const routes = [
+const seasons = [
   {
     param: 'winter',
     name: 'Winter'
@@ -19,30 +19,6 @@ const routes = [
   {
     param: 'fall',
     name: 'Fall'
-  },
-  {
-    param: 2016,
-    name: 2016
-  },
-  {
-    param: 2015,
-    name: 2015,
-  },
-  {
-    param: 2014,
-    name: 2014
-  },
-  {
-    param: 2013,
-    name: 2013
-  },
-  {
-    param: 2012,
-    name: 2012
-  },
-  {
-    param: 2011,
-    name: 2011
   }
 ]
 
@@ -102,6 +78,17 @@ class Header extends React.Component {
     })
   }
   render(){
+    const config = this.props.config
+
+    const routes = seasons;
+    const numOfYears = 5;
+    for(var i = 0; i < numOfYears; i++) {
+      routes.push({
+        name: config.currentSeason.year - i,
+        param: config.currentSeason.year - i
+      })
+    }
+
     return (
       <header>
         <Link to="/"><h2 className="site-title">Anime Drop</h2></Link>
