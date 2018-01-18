@@ -10,7 +10,7 @@ class AnimeList extends Component {
   }
 
   formatScore (averageScore: number) {
-    return averageScore === 0 ? "" : averageScore
+    return averageScore === 0 ? "" : parseInt(averageScore, 10)/10
   }
 
   renderAnime() {
@@ -22,10 +22,10 @@ class AnimeList extends Component {
           .map((anime, i) => (
             <div key={anime.id}>
               <Link to={`/anime/${anime.id}`}>
-                <img src={anime.image_url_lge} />
+                <img src={anime.coverImage.large} />
                 <div className="overlay">
-                  <h3><span>{anime.title_romaji}</span></h3>
-                  {anime.average_score ? <div className="score">{this.formatScore(anime.average_score)}</div> : null}
+                  <h3><span>{anime.title.romaji}</span></h3>
+                  {anime.meanScore ? <div className="score">{this.formatScore(anime.meanScore)}</div> : null}
                 </div>
               </Link>
             </div>

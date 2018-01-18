@@ -10,7 +10,7 @@
     "test:nocache": "jest --no-cache",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "deploy": "npm run build && cd build && mv index.html 200.html && surge . --domain animedrop.com"
+    "deploy": "npm run build && cd build && mv index.html 200.html && surge . --domain animedrop.surge.sh"
   },
   "jest": {
     "testRegex": "\\.test\\.js$",

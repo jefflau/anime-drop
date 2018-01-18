@@ -1,5 +1,6 @@
 // @flow
 import AL from '../api/anilist'
+import AL2 from '../api/anilist-graphql'
 import { serverError } from './errors'
 import { getAccessToken } from './accessToken'
 
@@ -53,9 +54,9 @@ export function getSeason(year: number, season: string) {
 
     function getAnimeSeason(year: number, season: string, accessToken: string) {
       dispatch(fetchAnimeListRequest(year, season))
-      return AL.getAnimeSeason({ year, season }, accessToken)
+      return AL2.getAnimeSeason({ year, season }, accessToken)
         .then(data => {
-          dispatch(setSeason(year, season, data))
+          dispatch(setSeason(year, season, data.Page.media))
           dispatch(fetchAnimeListComplete(year, season))
         })
         .catch(err => {
