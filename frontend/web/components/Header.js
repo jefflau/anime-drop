@@ -79,7 +79,7 @@ class Header extends React.Component {
   }
   render(){
     const config = this.props.config
-    const routes = seasons;
+    const routes = [...seasons];
     const numOfYears = 5;
     
     for(var i = 0; i < numOfYears; i++) {
