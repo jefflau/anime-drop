@@ -5,17 +5,17 @@ import { connect } from 'react-redux'
 import Loader from '../Loader'
 import {formatScore, capitalise} from '../../../utils'
 
-const Character = ({charDetail: {name_first, name_last, image_url_med, actor}}) => (
+const Character = ({charDetail: {name, image, actor}}) => (
   <li className="character-card">
-    <img src={image_url_med} className="character-image" />
+    <img src={image.medium} className="character-image" />
     <div className="name-card">
       <div className="character-name">
-        {name_first + " "}
-        {name_last}
+        {name.first + " "}
+        {name.last}
       </div>
       <div className="actor-name">
-        {actor[0].name_first + " "}
-        {actor[0].name_last}
+        {actor.name.first + " "}
+        {actor.name.last}
       </div>
     </div>
   </li>
@@ -52,8 +52,10 @@ class AnimeDetails extends React.Component {
           genres = details.genres.map((genresList, i) => <li className="genres-list-item" key={i}>{genresList}</li>),
           characters
 
-      if (details.characters.length > 0) {
-        characters = details.characters.slice(0, 7)
+      console.log(details)
+
+      if (details.characters.nodes.length > 0) {
+        characters = details.characters.nodes.slice(0, 7)
           .map((charDetail, i) => <Character charDetail={charDetail} key={i}/>)
       }
       content = (

@@ -49,6 +49,20 @@ const AL: ALtype = {
               large
               medium
             }
+            characters {
+              nodes {
+                name {
+                  first
+                  last
+                  native
+                  alternative
+                }
+                image {
+                  medium
+                  large
+                }
+              }
+            }
           }
         }
       }
